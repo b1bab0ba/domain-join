@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -11,7 +12,8 @@ namespace DomainJoiner {
         private static string domain, username, password;
 
         static void Main(string[] args) {
-
+            /* Create support directory */
+            System.IO.Directory.CreateDirectory(@"C:\Support");
 
             if (args.Length == 0) {
                 /* Ask user to input params */
@@ -32,10 +34,10 @@ namespace DomainJoiner {
                         password = args[i];
                 }
 
-                Console.WriteLine($"Domain: {domain} | Username: {username} | Password: {password}");
+                Connect(domain, username, password);
 
+                Console.WriteLine("Finished.");
 
-                
                 /* keep window open for debugging */
                 Console.Read();
             }
@@ -56,12 +58,13 @@ namespace DomainJoiner {
 
                     // Did it work?
                     if ((uint)(joinParams.Properties["ReturnValue"].Value) != 0) {
-                        Console.WriteLine(string.Format("JoinDomainOrWorkgroup return code: '{0}'", joinParams["ReturnValue"]));
-                        // Join to domain didn't work
-                        Console.WriteLine(string.Format("JoinDomainOrWorkgroup failed with return code: '{0}', if '1355' there is no connection to the domain.", joinParams["ReturnValue"]));
+                        /* Domain error codes: https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/joindomainorworkgroup-method-in-class-win32-computersystem */
+                        string path = @"C:\Support\failed.txt";
+                        File.Create(path).Dispose();
+                        File.AppendAllLines(path, new[] { string.Format("JoinDomainOrWorkgroup failed with return code: '{0}', if '1355' there is no connection to the domain.", joinParams["ReturnValue"]) });
                         return false;
                     }
-                    return false;
+                    return true;
                 } catch {
                     return false;
                 }
