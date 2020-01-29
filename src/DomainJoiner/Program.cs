@@ -27,12 +27,14 @@ namespace DomainJoiner {
 
             if (args.Length == 0) {
                 /* Ask user to input params */
-                System.Console.WriteLine("Please enter parameter values.");
-                Console.Read();
+                string path = @"C:\Support\failed.txt";
+                File.Create(path).Dispose();
+                File.AppendAllLines(path, new[] { "No Params." });
             } else if (args.Length > 3) {
                 /* Too many params */
-                System.Console.WriteLine("Arguments overloaded.");
-                Console.Read();
+                string path = @"C:\Support\failed.txt";
+                File.Create(path).Dispose();
+                File.AppendAllLines(path, new[] { "Arguments Overloaded." });
             } else {
                 /* loop args array */
                 for (int i = 0; i < args.Length; i++) {
