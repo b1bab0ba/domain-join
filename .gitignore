@@ -1,2 +1,13 @@
 
 src/DomainJoiner/.vs/DomainJoiner/v16/Server/sqlite3/db.lock
+src/DomainJoiner/bin/Debug/DomainJoiner.exe
+src/DomainJoiner/bin/Debug/DomainJoiner.exe.config
+src/DomainJoiner/bin/Debug/DomainJoiner.pdb
+src/DomainJoiner/obj/Debug/DomainJoiner.csproj.FileListAbsolute.txt
+src/DomainJoiner/obj/Debug/DomainJoiner.csprojAssemblyReference.cache
+src/DomainJoiner/obj/Debug/DomainJoiner.csprojAssemblyReference.cache
+src/DomainJoiner/obj/Debug/DomainJoiner.exe
+src/DomainJoiner/obj/Debug/DomainJoiner.pdb
+src/DomainJoiner/obj/Debug/DomainJoiner.csprojAssemblyReference.cache
+*.cache
+src/DomainJoiner/.vs/DomainJoiner/v16/Server/sqlite3/storage.ide-wal
