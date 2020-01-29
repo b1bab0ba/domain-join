@@ -5,15 +5,13 @@ Simple & Standalone C# Console application that will join a PC to a domain after
 
 [Quick PoC](https://streamable.com/s8ehm)
 
-## Installation
+## Usage example
 
 Windows:
 
 ```sh
 cmd /k ""c:\support\domain.exe" "domain" "username" "password""
 ```
-
-## Usage example
 
 Copy the release of this project to a machine that is not currently connected to a domain, save it in a location accessible by an Administrator and run with the 3 arguments above, this will connect the machine to the domain but will require a reboot to complete successfully.
 
