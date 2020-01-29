@@ -11,3 +11,6 @@ src/DomainJoiner/obj/Debug/DomainJoiner.pdb
 src/DomainJoiner/obj/Debug/DomainJoiner.csprojAssemblyReference.cache
 *.cache
 src/DomainJoiner/.vs/DomainJoiner/v16/Server/sqlite3/storage.ide-wal
+src/DomainJoiner/.vs/DomainJoiner/v16/.suo
+src/DomainJoiner/.vs/DomainJoiner/v16/Server/sqlite3/storage.ide-wal
+src/DomainJoiner/obj/Debug/DomainJoiner.csprojAssemblyReference.cache
