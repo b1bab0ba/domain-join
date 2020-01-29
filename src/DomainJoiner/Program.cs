@@ -61,7 +61,7 @@ namespace DomainJoiner {
                         /* Domain error codes: https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/joindomainorworkgroup-method-in-class-win32-computersystem */
                         string path = @"C:\Support\failed.txt";
                         File.Create(path).Dispose();
-                        File.AppendAllLines(path, new[] { string.Format("JoinDomainOrWorkgroup failed with return code: '{0}', if '1355' there is no connection to the domain.", joinParams["ReturnValue"]) });
+                        File.AppendAllLines(path, new[] { string.Format("JoinDomainOrWorkgroup failed with return code: '{0}', see https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/joindomainorworkgroup-method-in-class-win32-computersystem for return codes.", joinParams["ReturnValue"]) });
                         return false;
                     }
                     return true;
