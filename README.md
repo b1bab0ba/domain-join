@@ -3,6 +3,8 @@
 
 Simple & Standalone C# Console application that will join a PC to a domain after it's ran with command line arguments.
 
+[Quick PoC](https://streamable.com/s8ehm)
+
 ## Installation
 
 Windows:
