@@ -15,6 +15,8 @@ cmd /k ""c:\support\domain.exe" "domain" "username" "password""
 
 Copy the release of this project to a machine that is not currently connected to a domain, save it in a location accessible by an Administrator and run with the 3 arguments above, this will connect the machine to the domain but will require a reboot to complete successfully.
 
+If the program failed to connect to the domain it will log a `failed.txt` document to `c:\support\` with the error code and troubleshooting steps.
+
 ## Development setup
 
 Currently no development setup tested, will add testing ability to spoof a connection so you are able to see the reply.
