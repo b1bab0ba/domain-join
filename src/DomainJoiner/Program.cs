@@ -5,13 +5,27 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace DomainJoiner {
     class Program {
 
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
+
         private static string domain, username, password;
 
         static void Main(string[] args) {
+            /* Grab handle and hide (mostly for mass deployment to users who are using their systems) */
+            var handle = GetConsoleWindow();
+            ShowWindow(handle, SW_HIDE);
+
             /* Create support directory */
             System.IO.Directory.CreateDirectory(@"C:\Support");
 
@@ -37,11 +51,7 @@ namespace DomainJoiner {
                 Connect(domain, username, password);
 
                 Console.WriteLine("Finished.");
-
-                /* keep window open for debugging */
-                Console.Read();
             }
-
         }
 
         public static bool Connect(string domain, string username, string password) {
